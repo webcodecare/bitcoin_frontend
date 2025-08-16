@@ -1,0 +1,38 @@
+{
+  "framework": null,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "env": {
+    "VITE_API_BASE_URL": "https://bitcoin-api.solvemeet.com",
+    "VITE_API_URL": "https://bitcoin-api.solvemeet.com",
+    "VITE_BACKEND_URL": "https://bitcoin-api.solvemeet.com",
+    "VITE_WS_URL": "wss://bitcoin-api.solvemeet.com",
+    "NODE_ENV": "production"
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://bitcoin-api.solvemeet.com"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://bitcoin-api.solvemeet.com/api/$1"
+    }
+  ]
+}

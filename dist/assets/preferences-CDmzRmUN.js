@@ -1,0 +1,2 @@
+import{j as t}from"./ui-vendor-mfLK6kkQ.js";import{r}from"./react-vendor--0RGCJ5T.js";import{a1 as s}from"./index-DMUxz8dE.js";import"./chart-vendor-CJvGuOij.js";function a(){const[,e]=s();return r.useEffect(()=>{e("/settings")},[e]),t.jsx("div",{className:"flex items-center justify-center h-screen",children:t.jsx("p",{children:"Redirecting to Settings..."})})}export{a as default};
+//# sourceMappingURL=preferences-CDmzRmUN.js.map
