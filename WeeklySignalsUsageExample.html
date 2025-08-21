@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Buy/Sell Signals - Standalone Demo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            color: white;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .header h1 {
+            color: #FF6B35;
+            margin-bottom: 0.5rem;
+        }
+        
+        .integration-guide {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #FF6B35;
+        }
+        
+        .code-block {
+            background: #0a0a0a;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        .code-block code {
+            color: #4ADE80;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .chart-container {
+            margin: 2rem 0;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .feature {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .feature h3 {
+            color: #FF6B35;
+            margin-top: 0;
+        }
+        
+        .live-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(74, 222, 128, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #4ADE80;
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+        
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: #4ADE80;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Weekly Buy/Sell Signals Chart</h1>
+            <p>Standalone React Component - <span class="live-indicator"><span class="live-dot"></span>Real-time Updates</span></p>
+        </div>
+
+        <div class="integration-guide">
+            <h2>🚀 How to Use This Chart on Any Website</h2>
+            <p>This standalone chart component can be integrated into any React application or website. Here's how:</p>
+            
+            <h3>1. React/Next.js Integration</h3>
+            <div class="code-block">
+                <code>
+import WeeklySignalsStandalone from './WeeklySignalsStandalone';<br><br>
+
+function MyApp() {<br>
+&nbsp;&nbsp;return (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;WeeklySignalsStandalone <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apiUrl="https://your-api-domain.com"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height={600}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title="Custom Chart Title"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;className="my-chart"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/&gt;<br>
+&nbsp;&nbsp;);<br>
+}
+                </code>
+            </div>
+
+            <h3>2. HTML/Vanilla JS Integration</h3>
+            <div class="code-block">
+                <code>
+&lt;!-- Include React and the chart component --&gt;<br>
+&lt;script src="https://unpkg.com/react@18/umd/react.production.min.js"&gt;&lt;/script&gt;<br>
+&lt;script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"&gt;&lt;/script&gt;<br>
+&lt;script src="./WeeklySignalsStandalone.js"&gt;&lt;/script&gt;<br><br>
+
+&lt;div id="weekly-chart"&gt;&lt;/div&gt;<br><br>
+
+&lt;script&gt;<br>
+&nbsp;&nbsp;ReactDOM.render(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;React.createElement(WeeklySignalsStandalone, {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apiUrl: 'https://your-api-domain.com',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: 600<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('weekly-chart')<br>
+&nbsp;&nbsp;);<br>
+&lt;/script&gt;
+                </code>
+            </div>
+
+            <h3>3. Required Dependencies</h3>
+            <div class="code-block">
+                <code>
+npm install react react-dom lightweight-charts<br>
+# or<br>
+yarn add react react-dom lightweight-charts
+                </code>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <h3>🔄 Real-time Updates</h3>
+                <p>Chart updates every 5 seconds with live price data and new trading signals</p>
+            </div>
+            <div class="feature">
+                <h3>📊 Professional Charts</h3>
+                <p>Powered by TradingView's Lightweight Charts library with smooth animations</p>
+            </div>
+            <div class="feature">
+                <h3>🎯 Trading Signals</h3>
+                <p>Visual buy/sell arrows with price levels and timestamps</p>
+            </div>
+            <div class="feature">
+                <h3>📱 Responsive Design</h3>
+                <p>Works perfectly on desktop, tablet, and mobile devices</p>
+            </div>
+            <div class="feature">
+                <h3>🔧 Customizable</h3>
+                <p>Configure API URL, height, title, and styling to match your brand</p>
+            </div>
+            <div class="feature">
+                <h3>⚡ Zero Dependencies</h3>
+                <p>Self-contained component with all styles and functionality included</p>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h2>📈 Live Demo Chart</h2>
+            <p>This chart shows BTCUSD weekly data with real buy/sell signals from the past 2 years:</p>
+            
+            <!-- Chart would be rendered here in a real React app -->
+            <div style="
+                width: 100%; 
+                height: 500px; 
+                background: linear-gradient(135deg, #111 0%, #222 100%);
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 2px dashed rgba(255, 107, 53, 0.3);
+                color: #888;
+                text-align: center;
+                font-size: 1.1rem;
+            ">
+                <div>
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📊</div>
+                    <div>Chart Component Goes Here</div>
+                    <div style="font-size: 0.9rem; margin-top: 0.5rem; color: #666;">
+                        (Integrate with React to see live chart)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="integration-guide">
+            <h2>🔑 API Endpoints Required</h2>
+            <p>Your backend needs to provide these API endpoints:</p>
+            
+            <div class="code-block">
+                <code>
+GET /api/ohlc?symbol=BTCUSDT&interval=1w&limit=104<br>
+GET /api/signals/alerts?ticker=BTCUSDT&timeframe=1W<br>
+GET /api/market/price/BTCUSDT
+                </code>
+            </div>
+
+            <h3>Response Formats:</h3>
+            <div class="code-block">
+                <code>
+// OHLC Response<br>
+{<br>
+&nbsp;&nbsp;"symbol": "BTCUSDT",<br>
+&nbsp;&nbsp;"interval": "1w",<br>
+&nbsp;&nbsp;"count": 104,<br>
+&nbsp;&nbsp;"data": [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"time": "2023-01-01T00:00:00Z",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"open": 16500.00,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"high": 17000.00,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"low": 16000.00,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"close": 16800.00,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"volume": 1000000<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;]<br>
+}<br><br>
+
+// Signals Response<br>
+[<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"id": "signal-1",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"ticker": "BTCUSDT",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"signalType": "buy",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"price": 16500.00,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"timestamp": "2023-01-01T12:00:00Z",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"timeframe": "1W"<br>
+&nbsp;&nbsp;}<br>
+]<br><br>
+
+// Price Response<br>
+{<br>
+&nbsp;&nbsp;"price": 45250.75<br>
+}
+                </code>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 3rem 0; padding: 2rem; background: rgba(255, 107, 53, 0.1); border-radius: 8px;">
+            <h2 style="color: #FF6B35; margin-bottom: 1rem;">Ready to Integrate? 🎯</h2>
+            <p>Download the <code>WeeklySignalsStandalone.tsx</code> file and start using it in your project today!</p>
+            <p style="font-size: 0.9rem; color: #888; margin-top: 1rem;">
+                No external dependencies required - just React and lightweight-charts
+            </p>
+        </div>
+    </div>
+</body>
+</html>
